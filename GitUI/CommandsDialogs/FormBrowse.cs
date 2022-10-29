@@ -625,6 +625,9 @@ namespace GitUI.CommandsDialogs
                 }
             }
 
+            // rkj - temporary arrangement to select cmd as default
+            selectedDefaultShell = (ToolStripMenuItem)userShell.DropDownItems[1];
+
             if (selectedDefaultShell is not null)
             {
                 userShell.Image = selectedDefaultShell.Image;
@@ -1515,7 +1518,34 @@ namespace GitUI.CommandsDialogs
 
             try
             {
-                var executable = new Executable(shell.ExecutablePath, Module.WorkingDir);
+                string strCommandPath = "";
+                strCommandPath = ((ToolStripItem)sender).Text.Length == 0 ? ((ToolStripItem)sender).ToolTipText : sender.ToString();
+                switch (strCommandPath)
+                {
+                    case "cmd":
+                        strCommandPath = AppContext.BaseDirectory + ConEmuConstants.ConEmuSubfolderName + "\\Invoke.Cmd.cmd";
+                        break;
+                    case "powershell":
+                        strCommandPath = AppContext.BaseDirectory + ConEmuConstants.ConEmuSubfolderName + "\\Invoke.Powershell.cmd";
+                        break;
+                    case "bash":
+                        strCommandPath = AppContext.BaseDirectory + ConEmuConstants.ConEmuSubfolderName + "\\Invoke.Bash.cmd";
+                        break;
+                    case "Git bash":
+                        strCommandPath = AppContext.BaseDirectory + ConEmuConstants.ConEmuSubfolderName + "\\Invoke.Git-Bash.cmd";
+                        break;
+                    case "pwsh":
+                        strCommandPath = AppContext.BaseDirectory + ConEmuConstants.ConEmuSubfolderName + "\\Invoke.Pwsh.cmd";
+                        break;
+                    case "sh":
+                        strCommandPath = AppContext.BaseDirectory + ConEmuConstants.ConEmuSubfolderName + "\\Invoke.Sh.cmd";
+                        break;
+                    default:
+                        break;
+                }
+
+                // var executable = new Executable(shell.ExecutablePath, Module.WorkingDir);
+                var executable = new Executable(strCommandPath, Module.WorkingDir);
                 executable.Start(createWindow: true);
             }
             catch (Exception exception)
@@ -3051,6 +3081,8 @@ namespace GitUI.CommandsDialogs
                     WhenConsoleProcessExits = WhenConsoleProcessExits.CloseConsoleEmulator
                 };
 
+                string strCommandPath = AppContext.BaseDirectory + ConEmuConstants.ConEmuSubfolderName + "\\Invoke.ConEmu.cmd";
+
                 string shellType = AppSettings.ConEmuTerminal.Value;
                 startInfo.ConsoleProcessCommandLine = _shellProvider.GetShellCommandLine(shellType);
 
@@ -3066,7 +3098,8 @@ namespace GitUI.CommandsDialogs
 
                 try
                 {
-                    _terminal.Start(startInfo, ThreadHelper.JoinableTaskFactory, AppSettings.ConEmuStyle.Value, AppSettings.ConEmuFontSize.Value);
+                    ConEmuSession cesess = _terminal.Start(startInfo, ThreadHelper.JoinableTaskFactory, AppSettings.ConEmuStyle.Value, AppSettings.ConEmuFontSize.Value);
+                    cesess.WriteInputTextAsync("\"" + strCommandPath + "\"\ncls\n");
                 }
                 catch (InvalidOperationException)
                 {

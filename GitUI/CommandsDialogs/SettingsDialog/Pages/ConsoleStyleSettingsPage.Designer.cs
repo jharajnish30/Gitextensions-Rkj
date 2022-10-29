@@ -38,7 +38,7 @@
             // 
             // groupBoxConsoleSettings
             // 
-            this.groupBoxConsoleSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxConsoleSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxConsoleSettings.AutoSize = true;
             this.groupBoxConsoleSettings.Controls.Add(this.label3);
@@ -49,7 +49,7 @@
             this.groupBoxConsoleSettings.Margin = new System.Windows.Forms.Padding(17, 2, 3, 2);
             this.groupBoxConsoleSettings.Name = "groupBoxConsoleSettings";
             this.groupBoxConsoleSettings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxConsoleSettings.Size = new System.Drawing.Size(1653, 89);
+            this.groupBoxConsoleSettings.Size = new System.Drawing.Size(1244, 89);
             this.groupBoxConsoleSettings.TabIndex = 1;
             this.groupBoxConsoleSettings.TabStop = false;
             this.groupBoxConsoleSettings.Text = "Console settings (restart required)";
@@ -125,7 +125,11 @@
             "<Twilight>",
             "<Ubuntu>",
             "<xterm>",
-            "<Zenburn>"});
+            "<Zenburn>",
+            "<Dracula2>",
+            "<SolarMe-Rkj1>",
+            "<Monokai>",
+            "<Dracula>"});
             this._NO_TRANSLATE_cboStyle.Location = new System.Drawing.Point(118, 26);
             this._NO_TRANSLATE_cboStyle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._NO_TRANSLATE_cboStyle.Name = "_NO_TRANSLATE_cboStyle";
@@ -139,7 +143,7 @@
             this.Controls.Add(this.groupBoxConsoleSettings);
             this.Name = "ConsoleStyleSettingsPage";
             this.Padding = new System.Windows.Forms.Padding(8);
-            this.Size = new System.Drawing.Size(1711, 555);
+            this.Size = new System.Drawing.Size(1302, 590);
             this.groupBoxConsoleSettings.ResumeLayout(false);
             this.groupBoxConsoleSettings.PerformLayout();
             this.ResumeLayout(false);
