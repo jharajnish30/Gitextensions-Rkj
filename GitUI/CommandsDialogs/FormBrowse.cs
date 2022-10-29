@@ -3142,8 +3142,27 @@ namespace GitUI.CommandsDialogs
         private void toggleSplitViewLayout_Click(object sender, EventArgs e)
         {
             AppSettings.ShowSplitViewLayout = !AppSettings.ShowSplitViewLayout;
+            if (!AppSettings.ShowSplitViewLayout && !AppSettings.ShowSplitViewLayout2)
+            {
+                AppSettings.ShowSplitViewLayout2 = true;
+            }
+
             DiagnosticsClient.TrackEvent("Layout change",
                 new Dictionary<string, string> { { nameof(AppSettings.ShowSplitViewLayout), AppSettings.ShowSplitViewLayout.ToString() } });
+
+            RefreshSplitViewLayout();
+        }
+
+        private void toggleSplitViewLayout2_Click(object sender, EventArgs e)
+        {
+            AppSettings.ShowSplitViewLayout2 = !AppSettings.ShowSplitViewLayout2;
+            if (!AppSettings.ShowSplitViewLayout && !AppSettings.ShowSplitViewLayout2)
+            {
+                AppSettings.ShowSplitViewLayout = true;
+            }
+
+            DiagnosticsClient.TrackEvent("Layout change",
+                new Dictionary<string, string> { { nameof(AppSettings.ShowSplitViewLayout2), AppSettings.ShowSplitViewLayout2.ToString() } });
 
             RefreshSplitViewLayout();
         }
@@ -3189,8 +3208,11 @@ namespace GitUI.CommandsDialogs
         private void RefreshSplitViewLayout()
         {
             RightSplitContainer.Panel2Collapsed = !AppSettings.ShowSplitViewLayout;
+            RightSplitContainer.Panel1Collapsed = !AppSettings.ShowSplitViewLayout2;
             DiagnosticsClient.TrackEvent("Layout change",
                 new Dictionary<string, string> { { nameof(AppSettings.ShowSplitViewLayout), AppSettings.ShowSplitViewLayout.ToString() } });
+            DiagnosticsClient.TrackEvent("Layout change",
+                new Dictionary<string, string> { { nameof(AppSettings.ShowSplitViewLayout2), AppSettings.ShowSplitViewLayout2.ToString() } });
 
             RefreshLayoutToggleButtonStates();
         }
@@ -3199,6 +3221,7 @@ namespace GitUI.CommandsDialogs
         {
             toggleBranchTreePanel.Checked = !MainSplitContainer.Panel1Collapsed;
             toggleSplitViewLayout.Checked = AppSettings.ShowSplitViewLayout;
+            toggleSplitViewLayout2.Checked = AppSettings.ShowSplitViewLayout2;
 
             int commitInfoPositionNumber = (int)AppSettings.CommitInfoPosition;
             var selectedMenuItem = menuCommitInfoPosition.DropDownItems[commitInfoPositionNumber];

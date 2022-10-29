@@ -28,6 +28,7 @@ namespace GitUI.CommandsDialogs
             this.toolStripSeparator0 = new System.Windows.Forms.ToolStripSeparator();
             this.toggleBranchTreePanel = new System.Windows.Forms.ToolStripButton();
             this.toggleSplitViewLayout = new System.Windows.Forms.ToolStripButton();
+            this.toggleSplitViewLayout2 = new System.Windows.Forms.ToolStripButton();
             this.menuCommitInfoPosition = new System.Windows.Forms.ToolStripSplitButton();
             this.commitInfoBelowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commitInfoLeftwardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -254,6 +255,7 @@ namespace GitUI.CommandsDialogs
             this.toolStripSeparator0,
             this.toggleBranchTreePanel,
             this.toggleSplitViewLayout,
+            this.toggleSplitViewLayout2,
             this.menuCommitInfoPosition,
             this.toolStripSeparator17,
             this.toolStripButtonLevelUp,
@@ -333,6 +335,15 @@ namespace GitUI.CommandsDialogs
             this.toggleSplitViewLayout.Size = new System.Drawing.Size(23, 22);
             this.toggleSplitViewLayout.ToolTipText = "Toggle split view layout";
             this.toggleSplitViewLayout.Click += new System.EventHandler(this.toggleSplitViewLayout_Click);
+            // 
+            // toggleSplitViewLayout2
+            // 
+            this.toggleSplitViewLayout2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toggleSplitViewLayout2.Image = global::GitUI.Properties.Images.LayoutFooter2;
+            this.toggleSplitViewLayout2.Name = "toggleSplitViewLayout2";
+            this.toggleSplitViewLayout2.Size = new System.Drawing.Size(23, 22);
+            this.toggleSplitViewLayout2.ToolTipText = "Toggle split view layout2";
+            this.toggleSplitViewLayout2.Click += new System.EventHandler(this.toggleSplitViewLayout2_Click);
             // 
             // menuCommitInfoPosition
             // 
@@ -1018,7 +1029,7 @@ namespace GitUI.CommandsDialogs
             // 
             this.fileExplorerToolStripMenuItem.Image = global::GitUI.Properties.Images.BrowseFileExplorer;
             this.fileExplorerToolStripMenuItem.Name = "fileExplorerToolStripMenuItem";
-            this.fileExplorerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.fileExplorerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.O)));
             this.fileExplorerToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.fileExplorerToolStripMenuItem.Text = "File Explorer";
@@ -1909,6 +1920,7 @@ namespace GitUI.CommandsDialogs
         private ToolStripSplitButton branchSelect;
         private ToolStripButton toggleBranchTreePanel;
         private ToolStripButton toggleSplitViewLayout;
+        private ToolStripButton toggleSplitViewLayout2;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem closeToolStripMenuItem;

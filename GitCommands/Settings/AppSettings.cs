@@ -217,21 +217,21 @@ namespace GitCommands
         public static void UsingContainer(RepoDistSettings settingsContainer, Action action)
         {
             SettingsContainer.LockedAction(() =>
+            {
+                var oldSC = SettingsContainer;
+                try
                 {
-                    var oldSC = SettingsContainer;
-                    try
-                    {
-                        SettingsContainer = settingsContainer;
-                        action();
-                    }
-                    finally
-                    {
-                        SettingsContainer = oldSC;
+                    SettingsContainer = settingsContainer;
+                    action();
+                }
+                finally
+                {
+                    SettingsContainer = oldSC;
 
-                        // refresh settings if needed
-                        SettingsContainer.GetString(string.Empty, null);
-                    }
-                });
+                    // refresh settings if needed
+                    SettingsContainer.GetString(string.Empty, null);
+                }
+            });
         }
 
         public static string? GetInstallDir()
@@ -481,6 +481,12 @@ namespace GitCommands
         {
             get => DetailedSettingsPath.GetBool("ShowSplitViewLayout", true);
             set => DetailedSettingsPath.SetBool("ShowSplitViewLayout", value);
+        }
+
+        public static bool ShowSplitViewLayout2
+        {
+            get => DetailedSettingsPath.GetBool("ShowSplitViewLayout2", true);
+            set => DetailedSettingsPath.SetBool("ShowSplitViewLayout2", value);
         }
 
         public static bool ProvideAutocompletion
