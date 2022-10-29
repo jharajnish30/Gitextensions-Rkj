@@ -1,0 +1,8 @@
+# generated objects
+obj/
+bin/
+packages/
+
+# user-files
+*.suo
+_ReSharper*/

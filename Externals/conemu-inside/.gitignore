@@ -1,0 +1,13 @@
+_*.sln
+*.exe
+bin
+obj
+*.user
+.vs
+*.sdf
+*.opensdf
+
+ConEmu.CommandLine/Tools/ConEmu/*
+*.nupkg
+packages/**
+*.opendb
