@@ -10,7 +10,7 @@ TestResults/
 *.DS_Store*
 
 obj/
-bin/
+
 
 #ignore output mild compiler
 GitExtensionsShellEx/Generated/

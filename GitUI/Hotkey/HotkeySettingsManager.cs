@@ -299,7 +299,9 @@ namespace GitUI.Hotkey
                     Hk(FormBrowse.Command.Stash, Keys.Control | Keys.Alt | Keys.Up),
                     Hk(FormBrowse.Command.StashPop, Keys.Control | Keys.Alt | Keys.Down),
                     Hk(FormBrowse.Command.ToggleBetweenArtificialAndHeadCommits, Keys.Control | Keys.OemBackslash),
-                    Hk(FormBrowse.Command.ToggleBranchTreePanel, Keys.Control | Keys.Alt | Keys.C)),
+                    Hk(FormBrowse.Command.ToggleBranchTreePanel, Keys.None | Keys.None | Keys.F6),
+                    Hk(FormBrowse.Command.ToggleRightTopPanel, Keys.None | Keys.None | Keys.F7),
+                    Hk(FormBrowse.Command.ToggleRightBottomPanel, Keys.None | Keys.None | Keys.F8)),
                 new HotkeySettings(
                     RevisionGridControl.HotkeySettingsName,
                     Hk(RevisionGridControl.Command.CompareSelectedCommits, Keys.None),
