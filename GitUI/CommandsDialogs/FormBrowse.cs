@@ -2077,7 +2077,7 @@ namespace GitUI.CommandsDialogs
 
         private void TranslateToolStripMenuItemClick(object sender, EventArgs e)
         {
-            OsShellUtil.OpenUrlInDefaultBrowser(@"https://github.com/gitextensions/gitextensions/wiki/Translations");
+            OsShellUtil.OpenUrlInDefaultBrowser(@"https://github.com/jharajnish30/gitextensions-rkj/wiki/Translations");
         }
 
         private void FileExplorerToolStripMenuItemClick(object sender, EventArgs e)
@@ -2301,7 +2301,9 @@ namespace GitUI.CommandsDialogs
             OpenCommitsWithDifftool = 35,
             ToggleBetweenArtificialAndHeadCommits = 36,
             GoToChild = 37,
-            GoToParent = 38
+            GoToParent = 38,
+            ToggleRightTopPanel = 39,
+            ToggleRightBottomPanel = 40
         }
 
         internal Keys GetShortcutKeys(Command cmd)
@@ -2386,6 +2388,8 @@ namespace GitUI.CommandsDialogs
                 case Command.OpenWithDifftoolSelectedToLocal: OpenWithDifftoolSelectedToLocal(); break;
                 case Command.OpenSettings: OnShowSettingsClick(null, null); break;
                 case Command.ToggleBranchTreePanel: toggleBranchTreePanel_Click(null, null); break;
+                case Command.ToggleRightTopPanel: toggleSplitViewLayout_Click(null, null); break;
+                case Command.ToggleRightBottomPanel: toggleSplitViewLayout2_Click(null, null); break;
                 case Command.EditFile: EditFile(); break;
                 case Command.OpenAsTempFile when fileTree.Visible: fileTree.ExecuteCommand(RevisionFileTreeControl.Command.OpenAsTempFile); break;
                 case Command.OpenAsTempFileWith when fileTree.Visible: fileTree.ExecuteCommand(RevisionFileTreeControl.Command.OpenAsTempFileWith); break;
@@ -3000,7 +3004,7 @@ namespace GitUI.CommandsDialogs
         private void reportAnIssueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UserEnvironmentInformation.CopyInformation();
-            OsShellUtil.OpenUrlInDefaultBrowser(@"https://github.com/gitextensions/gitextensions/issues");
+            OsShellUtil.OpenUrlInDefaultBrowser(@"https://github.com/jharajnish30/gitextensions-rkj/issues");
         }
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)

@@ -47,6 +47,19 @@ namespace ResourceManager
         {
             if (HotkeysEnabled && Hotkeys is not null)
             {
+                // RKJ START: hard coding keys for now - next step is to embed this inside app setting
+                if (keyData == Keys.F7)
+                {
+                    return ExecuteCommand(39).Executed;
+                }
+
+                if (keyData == Keys.F8)
+                {
+                    return ExecuteCommand(40).Executed;
+                }
+
+                // RKJ FINISH: hard coding keys for now - next step is to embed this inside app setting
+
                 foreach (var hotkey in Hotkeys)
                 {
                     if (hotkey is not null && hotkey.KeyData == keyData)
